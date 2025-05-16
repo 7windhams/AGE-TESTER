@@ -29,3 +29,23 @@ function resetForm() {
 function showAlert() {
   alert("This is an alert message!");
 }
+// Fix: Define checkButton and attach event listener to call checkAge 
+const checkButton = document.getElementById("checkButton");
+if (checkButton) {
+  checkButton.addEventListener("click", checkAge);
+}
+checkButton.addEventListener("click", () => {
+ //? Grabbing age input value
+  let ageInput = document.getElementById("ageInput");
+  console.log(ageInput.value);
+
+  //?Changes inputDate to acutual Date Value
+  const inputDate = new Date(ageInput.value);
+
+  //!Month Number is on a Zero-Based index
+  console.log(inputDate.getFullYear(), inputDate.getMonth(), inputDate.getDate());
+
+//?Gets current date and we use this to compare.
+  const currentDate = new Date();
+  console.log(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate());
+});
